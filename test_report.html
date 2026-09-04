@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation Test Report - Dashboard Automation &amp; Navigation Test Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.35);
+      --success: #10b981;
+      --success-glow: rgba(16, 185, 129, 0.25);
+      --danger: #ef4444;
+      --danger-glow: rgba(239, 68, 68, 0.25);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .header-title h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-title p { font-size: 0.95rem; color: var(--text-muted); margin-top: 0.35rem; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1.4rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .stat-card:hover { transform: translateY(-4px); }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-top: 0.25rem;
+    }
+    .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .color-total { color: #60a5fa; }
+    .color-pass { color: var(--success); }
+    .color-fail { color: var(--danger); }
+    .color-rate { color: #a78bfa; }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .test-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .test-title { font-size: 1.15rem; font-weight: 600; }
+    .badge {
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .badge-pass { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid var(--success); }
+    .badge-fail { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid var(--danger); }
+    .test-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 850px) { .test-grid { grid-template-columns: 1fr; } }
+    .meta-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .meta-table td { padding: 0.5rem 0; vertical-align: top; }
+    .meta-table td.label { width: 140px; color: var(--text-muted); font-weight: 500; }
+    .code-val { font-family: 'Fira Code', monospace; background: rgba(255, 255, 255, 0.06); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+    .screenshot-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .screenshot-img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .screenshot-img:hover { transform: scale(1.02); }
+    .screenshot-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; }
+    .error-box {
+      margin-top: 0.8rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-title">
+        <h1>Dashboard Automation &amp; Navigation Test Suite</h1>
+        <p>Target Application: <span class="code-val">https://devapp.marcoaiot.com/auth/login</span> | Executed on: 04 Sept 2026, 16:00:56</p>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Scenarios</div>
+        <div class="stat-num color-total">3</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Passed</div>
+        <div class="stat-num color-pass">3</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Failed</div>
+        <div class="stat-num color-fail">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pass Rate</div>
+        <div class="stat-num color-rate">100.0%</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Execution Details</h2>
+    <div class="test-card">
+      <div class="test-header">
+        <div class="test-title">#1. Dashboard KPI Cards Verification</div>
+        <div class="badge badge-pass">PASSED</div>
+      </div>
+      <div class="test-grid">
+        <div>
+          <table class="meta-table">
+            <tr><td class="label">Description:</td><td>Verify presence, metrics, and visual cards on the main dashboard view.</td></tr>
+            <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
+            <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
+            <tr><td class="label">Expected:</td><td>All dashboard summary cards and widgets load without error.</td></tr>
+            <tr><td class="label">Actual:</td><td>Successfully verified 45 dashboard cards and KPI metrics.</td></tr>
+            <tr><td class="label">Duration:</td><td>0.19s</td></tr>
+          </table>
+        </div>
+        <div class="screenshot-box">
+          <a href="screenshots/dashboard_cards_verified.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/dashboard_cards_verified.png" alt="Execution Screenshot" />
+          </a>
+          <div class="screenshot-caption">Click to view full screenshot</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-header">
+        <div class="test-title">#2. Sidebar Navigation Flow</div>
+        <div class="badge badge-pass">PASSED</div>
+      </div>
+      <div class="test-grid">
+        <div>
+          <table class="meta-table">
+            <tr><td class="label">Description:</td><td>Verify navigation from Dashboard to Finance &amp; Expense -&gt; Payment Requests.</td></tr>
+            <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
+            <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
+            <tr><td class="label">Expected:</td><td>Sidebar menus expand and navigate to target views smoothly.</td></tr>
+            <tr><td class="label">Actual:</td><td>Successfully navigated through sidebar menus to Payment Requests page.</td></tr>
+            <tr><td class="label">Duration:</td><td>4.22s</td></tr>
+          </table>
+        </div>
+        <div class="screenshot-box">
+          <a href="screenshots/navigation_payment_requests.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/navigation_payment_requests.png" alt="Execution Screenshot" />
+          </a>
+          <div class="screenshot-caption">Click to view full screenshot</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-header">
+        <div class="test-title">#3. Action Buttons &amp; Modal View Verification</div>
+        <div class="badge badge-pass">PASSED</div>
+      </div>
+      <div class="test-grid">
+        <div>
+          <table class="meta-table">
+            <tr><td class="label">Description:</td><td>Verify &#39;New/Add&#39; action button opens form drawer and view fields correctly.</td></tr>
+            <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
+            <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
+            <tr><td class="label">Expected:</td><td>Action view renders with all interactive form fields accessible.</td></tr>
+            <tr><td class="label">Actual:</td><td>Action button triggered properly. Form/Drawer modal view rendered successfully.</td></tr>
+            <tr><td class="label">Duration:</td><td>2.18s</td></tr>
+          </table>
+        </div>
+        <div class="screenshot-box">
+          <a href="screenshots/action_form_view_opened.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/action_form_view_opened.png" alt="Execution Screenshot" />
+          </a>
+          <div class="screenshot-caption">Click to view full screenshot</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Automated Selenium Test Execution Report &bull; Total Suite Duration: 33.71s</p>
+    </footer>
+  </div>
+</body>
+</html>

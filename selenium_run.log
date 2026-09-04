@@ -1,0 +1,306 @@
+2026-03-10 11:59:19,102 - INFO - Step 1: Email entered successfully.
+2026-03-10 11:59:19,243 - INFO - Step 2: Password entered successfully.
+2026-03-10 11:59:19,370 - INFO - Step 3: 'Sign In' button clicked.
+2026-03-10 11:59:19,370 - INFO - Login triggered. Staying open for 60 seconds to observe...
+2026-03-10 12:00:21,591 - INFO - Test process finished and browser closed.
+2026-03-10 12:00:30,906 - INFO - Step 1: Email entered successfully.
+2026-03-10 12:00:31,057 - INFO - Step 2: Password entered successfully.
+2026-03-10 12:00:31,175 - INFO - Step 3: 'Sign In' button clicked.
+2026-03-10 12:00:31,175 - INFO - Login triggered. Staying open for 60 seconds to observe...
+2026-03-10 12:01:33,409 - INFO - Test process finished and browser closed.
+2026-03-10 12:05:11,077 - INFO - --- New Test Session Started ---
+2026-03-10 12:05:12,360 - INFO - Step 1: Username entered.
+2026-03-10 12:05:12,531 - INFO - Step 2: Password entered.
+2026-03-10 12:05:12,693 - INFO - Step 3: 'Sign In' button clicked.
+2026-03-10 12:05:15,760 - WARNING - LOGIN FAILED: Website displayed -> Invalid username or password.
+2026-03-10 12:05:18,066 - INFO - Test process finished and browser closed.
+2026-03-10 12:05:18,066 - INFO - -----------------------------------------
+2026-03-10 12:19:46,528 - INFO - --- New Test Session Started ---
+2026-03-10 12:19:47,751 - INFO - Step 1: Username entered.
+2026-03-10 12:19:47,914 - INFO - Step 2: Password entered.
+2026-03-10 12:19:48,046 - INFO - Step 3: 'Sign In' button clicked.
+2026-03-10 12:19:51,084 - INFO - No error message seen, but dashboard not reached. Observing for 60s...
+2026-03-10 12:20:53,424 - INFO - Test process finished and browser closed.
+2026-03-10 12:20:53,424 - INFO - -----------------------------------------
+2026-03-10 12:26:16,566 - INFO - --- New Test Session Started ---
+2026-03-10 12:26:17,858 - INFO - Step 1: Username entered.
+2026-03-10 12:26:18,048 - INFO - Step 2: Password entered.
+2026-03-10 12:26:18,238 - INFO - Step 3: 'Sign In' button clicked.
+2026-03-10 12:26:21,279 - INFO - Looking for tenant: Marco Secure Solutions Ltd.
+2026-03-10 12:26:21,615 - INFO - SUCCESS: Clicked Go To Dashboard for Marco Secure Solutions Ltd.
+2026-03-10 12:26:26,638 - INFO - FINAL SUCCESS: Reached Dashboard URL.
+2026-03-10 12:26:26,639 - INFO - Observing result for 60 seconds...
+2026-03-10 12:27:28,778 - INFO - Test process finished and browser closed.
+2026-03-10 12:27:28,778 - INFO - -----------------------------------------
+2026-03-10 12:27:38,484 - Starting Login...
+2026-03-10 12:27:38,931 - Sign In button clicked.
+2026-03-10 12:27:41,970 - Selecting Tenant...
+2026-03-10 12:27:43,181 - Something went wrong: Message: element click intercepted: Element is not clickable at point (463, 581)
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c90b65
+	0x7ff6c3c8e27a
+	0x7ff6c3c8b115
+	0x7ff6c3c89fc7
+	0x7ff6c3c7b426
+	0x7ff6c3cb19da
+	0x7ff6c3c7aca6
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 12:27:45,487 - Test Finished.
+2026-03-10 12:27:58,427 - Starting Login...
+2026-03-10 12:27:58,898 - Sign In button clicked.
+2026-03-10 12:28:01,939 - Selecting Tenant...
+2026-03-10 12:28:02,138 - Success! Clicked Go To Dashboard.
+2026-03-10 12:29:04,424 - Test Finished.
+2026-03-10 12:34:30,581 - Starting Login...
+2026-03-10 12:34:31,022 - Sign In button clicked.
+2026-03-10 12:34:34,062 - Selecting Tenant...
+2026-03-10 12:34:34,318 - Success! Clicked Go To Dashboard.
+2026-03-10 12:35:30,476 - Starting Login...
+2026-03-10 12:35:31,004 - Sign In button clicked.
+2026-03-10 12:35:34,018 - Selecting Tenant...
+2026-03-10 12:35:35,170 - Something went wrong: Message: element click intercepted: Element is not clickable at point (463, 591)
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c90b65
+	0x7ff6c3c8e27a
+	0x7ff6c3c8b115
+	0x7ff6c3c89fc7
+	0x7ff6c3c7b426
+	0x7ff6c3cb19da
+	0x7ff6c3c7aca6
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 12:35:37,486 - Test Finished.
+2026-03-10 12:35:44,848 - Starting Login...
+2026-03-10 12:35:45,291 - Sign In button clicked.
+2026-03-10 12:35:48,308 - Selecting Tenant...
+2026-03-10 12:35:48,549 - Success! Clicked Go To Dashboard.
+2026-03-10 12:36:51,028 - Test Finished.
+2026-03-10 16:40:02,808 - Starting Login...
+2026-03-10 16:40:03,327 - Sign In button clicked.
+2026-03-10 16:40:06,372 - Selecting Tenant...
+2026-03-10 16:40:07,613 - Something went wrong: Message: element click intercepted: Element is not clickable at point (463, 555)
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c90b65
+	0x7ff6c3c8e27a
+	0x7ff6c3c8b115
+	0x7ff6c3c89fc7
+	0x7ff6c3c7b426
+	0x7ff6c3cb19da
+	0x7ff6c3c7aca6
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 16:40:10,075 - Test Finished.
+2026-03-10 16:40:41,576 - Starting Login...
+2026-03-10 16:40:42,031 - Sign In button clicked.
+2026-03-10 16:40:45,060 - Selecting Tenant...
+2026-03-10 16:40:45,251 - Success! Clicked Go To Dashboard.
+2026-03-10 16:40:52,625 - Navigated to Payment Requests.
+2026-03-10 16:41:24,413 - Something went wrong: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c8862e
+	0x7ff6c3c8893c
+	0x7ff6c3cd8d87
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 16:41:27,129 - Test Finished.
+2026-03-10 16:49:12,253 - Starting Login...
+2026-03-10 16:49:12,703 - Sign In button clicked.
+2026-03-10 16:49:15,752 - Selecting Tenant...
+2026-03-10 16:49:15,975 - Success! Clicked Go To Dashboard.
+2026-03-10 16:49:19,945 - Navigated to Payment Requests.
+2026-03-10 16:49:45,855 - Something went wrong: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c18c72
+	0x7ff6c3c3f015
+	0x7ff6c3cb90e0
+	0x7ff6c3cd5282
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 16:49:48,045 - Test Finished.
+2026-03-10 17:17:03,795 - INFO - --- New Test Session Started ---
+2026-03-10 17:17:03,797 - INFO - Opening Login Page...
+2026-03-10 17:17:05,861 - INFO - Sign In button clicked.
+2026-03-10 17:17:08,913 - INFO - Selecting Tenant...
+2026-03-10 17:17:09,027 - INFO - Clicked Go To Dashboard.
+2026-03-10 17:17:12,903 - INFO - Navigated to Payment Requests.
+2026-03-10 17:17:13,005 - INFO - Clicked New Request button.
+2026-03-10 17:17:27,940 - ERROR - Something went wrong: Message: target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: chrome=145.0.7632.160)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d546
+	0x7ff6c3c1a050
+	0x7ff6c3c18e86
+	0x7ff6c3c3f015
+	0x7ff6c3cb90e0
+	0x7ff6c3cd5282
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 17:17:30,206 - INFO - Test Session Finished.
+2026-03-10 17:20:42,057 - INFO - --- FULL TEST SESSION STARTED ---
+2026-03-10 17:20:42,058 - INFO - Step 1: Logging in...
+2026-03-10 17:20:47,081 - INFO - Step 2: Selecting Tenant...
+2026-03-10 17:20:47,208 - INFO - Tenant selected successfully.
+2026-03-10 17:20:47,209 - INFO - Step 3: Navigating to Finance...
+2026-03-10 17:21:07,946 - INFO - Step 4: Filling the form...
+2026-03-10 17:21:33,930 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/aec5d2dc94fc7b3762ac8781c810c01b
+2026-03-10 17:21:37,999 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=59127): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it")': /session/aec5d2dc94fc7b3762ac8781c810c01b
+2026-03-10 17:21:42,069 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=59127): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it")': /session/aec5d2dc94fc7b3762ac8781c810c01b
+2026-03-10 17:21:46,182 - INFO - --- TEST SESSION FINISHED ---
+2026-03-10 17:22:46,142 - INFO - --- STABLE TEST SESSION STARTED ---
+2026-03-10 17:22:48,819 - INFO - Tenant selected.
+2026-03-10 17:22:51,860 - INFO - Form opened.
+2026-03-10 17:22:52,871 - INFO - Injecting date via JavaScript to prevent crash.
+2026-03-10 17:22:53,007 - ERROR - Test Failed: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//label[contains(text(),'Payee Name')]/following-sibling::input"}
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c8862e
+	0x7ff6c3c8893c
+	0x7ff6c3cd8d87
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 17:22:55,505 - INFO - Session closed.
+2026-03-10 17:23:18,107 - INFO - --- STABLE TEST SESSION STARTED ---
+2026-03-10 17:23:21,028 - INFO - Tenant selected.
+2026-03-10 17:23:25,103 - INFO - Form opened.
+2026-03-10 17:23:26,069 - INFO - Injecting date via JavaScript to prevent crash.
+2026-03-10 17:23:26,259 - ERROR - Test Failed: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//label[contains(text(),'Payee Name')]/following-sibling::input"}
+  (Session info: chrome=145.0.7632.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6c413aa55
+	0x7ff6c3e98630
+	0x7ff6c3c2d75d
+	0x7ff6c3c8862e
+	0x7ff6c3c8893c
+	0x7ff6c3cd8d87
+	0x7ff6c3cd591c
+	0x7ff6c3c79098
+	0x7ff6c3c79f83
+	0x7ff6c4167810
+	0x7ff6c4161afd
+	0x7ff6c4182c1a
+	0x7ff6c3eb3345
+	0x7ff6c3ebb81c
+	0x7ff6c3ea1924
+	0x7ff6c3ea1ad6
+	0x7ff6c3e87e47
+	0x7ffdaa81e8d7
+	0x7ffdabb8c48c
+
+2026-03-10 17:23:28,732 - INFO - Session closed.
