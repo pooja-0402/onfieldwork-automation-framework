@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -15,14 +16,18 @@ public class ExcelReportManager {
      * If the file doesn't exist, it creates it with header columns.
      * If it already exists (from earlier/daily runs), it appends new rows with current Date and Time.
      */
-    public static void appendResultsToExcel(List<HtmlReportManager.TestResult> results) {
+    public static synchronized void appendResultsToExcel(List<HtmlReportManager.TestResult> results) {
+        if (results == null || results.isEmpty()) {
+            return;
+        }
+
         File file = new File(CSV_FILE_PATH);
         boolean fileExists = file.exists();
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String currentRunTimestamp = LocalDateTime.now().format(dtf);
 
-        try (FileWriter fw = new FileWriter(file, true);
+        try (FileWriter fw = new FileWriter(file, StandardCharsets.UTF_8, true);
              PrintWriter pw = new PrintWriter(fw)) {
 
             // If new file, write UTF-8 BOM (for Excel) and Header row
@@ -34,6 +39,8 @@ public class ExcelReportManager {
 
             // Append each scenario result
             for (HtmlReportManager.TestResult r : results) {
+                if (r == null) continue;
+                String sanitizedError = r.errorMessage != null ? r.errorMessage.replaceAll("[\\r\\n]+", " | ").trim() : "None";
                 String row = String.format(
                         "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%.2f\",\"%s\",\"%s\"",
                         escapeCsv(currentRunTimestamp),
@@ -46,7 +53,7 @@ public class ExcelReportManager {
                         r.passed ? "PASSED" : "FAILED",
                         r.durationMs / 1000.0,
                         escapeCsv(r.screenshotFile != null ? r.screenshotFile : "N/A"),
-                        escapeCsv(r.errorMessage != null ? r.errorMessage : "None")
+                        escapeCsv(sanitizedError)
                 );
                 pw.println(row);
             }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automation Test Report - Dashboard Automation &amp; Navigation Test Suite</title>
+  <title>Automation Test Report - Infra Projects Creation &amp; Details Verification Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -165,8 +165,8 @@
   <div class="container">
     <header>
       <div class="header-title">
-        <h1>Dashboard Automation &amp; Navigation Test Suite</h1>
-        <p>Target Application: <span class="code-val">https://devapp.marcoaiot.com/auth/login</span> | Executed on: 04 Sept 2026, 16:00:56</p>
+        <h1>Infra Projects Creation &amp; Details Verification Suite</h1>
+        <p>Target Application: <span class="code-val">https://devapp.marcoaiot.com/auth/login</span> | Executed on: 08 Sept 2026, 17:02:19</p>
       </div>
     </header>
 
@@ -177,38 +177,38 @@
       </div>
       <div class="stat-card">
         <div class="stat-label">Passed</div>
-        <div class="stat-num color-pass">3</div>
+        <div class="stat-num color-pass">2</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Failed</div>
-        <div class="stat-num color-fail">0</div>
+        <div class="stat-num color-fail">1</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Pass Rate</div>
-        <div class="stat-num color-rate">100.0%</div>
+        <div class="stat-num color-rate">66.7%</div>
       </div>
     </div>
 
     <h2 class="section-title">Execution Details</h2>
     <div class="test-card">
       <div class="test-header">
-        <div class="test-title">#1. Dashboard KPI Cards Verification</div>
+        <div class="test-title">#1. Navigate to Infra Projects -&gt; Project List</div>
         <div class="badge badge-pass">PASSED</div>
       </div>
       <div class="test-grid">
         <div>
           <table class="meta-table">
-            <tr><td class="label">Description:</td><td>Verify presence, metrics, and visual cards on the main dashboard view.</td></tr>
+            <tr><td class="label">Description:</td><td>Verify sidebar navigation to &#39;Infra Projects&#39; and opening &#39;Project List&#39;.</td></tr>
             <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
             <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
-            <tr><td class="label">Expected:</td><td>All dashboard summary cards and widgets load without error.</td></tr>
-            <tr><td class="label">Actual:</td><td>Successfully verified 45 dashboard cards and KPI metrics.</td></tr>
-            <tr><td class="label">Duration:</td><td>0.19s</td></tr>
+            <tr><td class="label">Expected:</td><td>User should be navigated to the Project List page with &#39;Create Project&#39; button visible.</td></tr>
+            <tr><td class="label">Actual:</td><td>Successfully navigated to Project List page (URL: https://devapp.marcoaiot.com/projects).</td></tr>
+            <tr><td class="label">Duration:</td><td>4.28s</td></tr>
           </table>
         </div>
         <div class="screenshot-box">
-          <a href="screenshots/dashboard_cards_verified.png" target="_blank">
-            <img class="screenshot-img" src="screenshots/dashboard_cards_verified.png" alt="Execution Screenshot" />
+          <a href="screenshots/infra_projects_list_page.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/infra_projects_list_page.png" alt="Execution Screenshot" />
           </a>
           <div class="screenshot-caption">Click to view full screenshot</div>
         </div>
@@ -216,23 +216,23 @@
     </div>
     <div class="test-card">
       <div class="test-header">
-        <div class="test-title">#2. Sidebar Navigation Flow</div>
+        <div class="test-title">#2. Create Project with Infrastructure Setup</div>
         <div class="badge badge-pass">PASSED</div>
       </div>
       <div class="test-grid">
         <div>
           <table class="meta-table">
-            <tr><td class="label">Description:</td><td>Verify navigation from Dashboard to Finance &amp; Expense -&gt; Payment Requests.</td></tr>
+            <tr><td class="label">Description:</td><td>Complete 4-step wizard to create project with Infrastructure Setup checkbox enabled.</td></tr>
             <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
             <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
-            <tr><td class="label">Expected:</td><td>Sidebar menus expand and navigate to target views smoothly.</td></tr>
-            <tr><td class="label">Actual:</td><td>Successfully navigated through sidebar menus to Payment Requests page.</td></tr>
-            <tr><td class="label">Duration:</td><td>4.22s</td></tr>
+            <tr><td class="label">Expected:</td><td>Project is submitted and modal closes, confirming project creation with Infrastructure enabled.</td></tr>
+            <tr><td class="label">Actual:</td><td>Project &#39;Infra Project Auto 08170121&#39; created successfully with &#39;Infrastructure Setup&#39; checked.</td></tr>
+            <tr><td class="label">Duration:</td><td>32.44s</td></tr>
           </table>
         </div>
         <div class="screenshot-box">
-          <a href="screenshots/navigation_payment_requests.png" target="_blank">
-            <img class="screenshot-img" src="screenshots/navigation_payment_requests.png" alt="Execution Screenshot" />
+          <a href="screenshots/create_project_success_list.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/create_project_success_list.png" alt="Execution Screenshot" />
           </a>
           <div class="screenshot-caption">Click to view full screenshot</div>
         </div>
@@ -240,30 +240,36 @@
     </div>
     <div class="test-card">
       <div class="test-header">
-        <div class="test-title">#3. Action Buttons &amp; Modal View Verification</div>
-        <div class="badge badge-pass">PASSED</div>
+        <div class="test-title">#3. Verify Project Details Page &amp; Infrastructure Tab</div>
+        <div class="badge badge-fail">FAILED</div>
       </div>
       <div class="test-grid">
         <div>
           <table class="meta-table">
-            <tr><td class="label">Description:</td><td>Verify &#39;New/Add&#39; action button opens form drawer and view fields correctly.</td></tr>
+            <tr><td class="label">Description:</td><td>Verify Project Profile details, navigation tabs, and Infrastructure module on details page.</td></tr>
             <tr><td class="label">Username / Email:</td><td><span class="code-val">pooja.mali@marcoaiot.com</span></td></tr>
             <tr><td class="label">Password:</td><td><span class="code-val">••••••••</span></td></tr>
-            <tr><td class="label">Expected:</td><td>Action view renders with all interactive form fields accessible.</td></tr>
-            <tr><td class="label">Actual:</td><td>Action button triggered properly. Form/Drawer modal view rendered successfully.</td></tr>
-            <tr><td class="label">Duration:</td><td>2.18s</td></tr>
+            <tr><td class="label">Expected:</td><td>Project details render with Project Profile, active status, and Infrastructure tab enabled.</td></tr>
+            <tr><td class="label">Actual:</td><td>Failed to verify Project Details page.</td></tr>
+            <tr><td class="label">Duration:</td><td>24.91s</td></tr>
           </table>
+          <div class="error-box"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: //*[text()=&#39;Infra Projects&#39;] | //span[contains(text(), &#39;Infra Projects&#39;)] | //div[contains(text(), &#39;Infra Projects&#39;)] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &#39;4.21.0&#39;, revision: &#39;79ed462ef4&#39;
+System info: os.name: &#39;Windows 11&#39;, os.arch: &#39;amd64&#39;, os.version: &#39;10.0&#39;, java.version: &#39;21.0.11&#39;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.77, chrome: {chromedriverVersion: 152.0.7977.82 (d04cdb24d67b..., userDataDir: C:\Users\admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64671}, goog:processID: 27032, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64671/devtoo..., se:cdpVersion: 152.0.7977.77, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f86147bce6b3a9e1471482b5aed56e88</div>
         </div>
         <div class="screenshot-box">
-          <a href="screenshots/action_form_view_opened.png" target="_blank">
-            <img class="screenshot-img" src="screenshots/action_form_view_opened.png" alt="Execution Screenshot" />
+          <a href="screenshots/project_details_error.png" target="_blank">
+            <img class="screenshot-img" src="screenshots/project_details_error.png" alt="Execution Screenshot" />
           </a>
           <div class="screenshot-caption">Click to view full screenshot</div>
         </div>
       </div>
     </div>
     <footer>
-      <p>Automated Selenium Test Execution Report &bull; Total Suite Duration: 33.71s</p>
+      <p>Automated Selenium Test Execution Report &bull; Total Suite Duration: 90.40s</p>
     </footer>
   </div>
 </body>

@@ -30,11 +30,20 @@ public class TestLoginScenarios {
 
     public static WebDriver setupDriver() {
         System.out.println("Initializing Chrome WebDriver...");
+        try {
+            io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+        } catch (Exception e) {
+            System.out.println("WebDriverManager setup fallback: " + e.getMessage());
+        }
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
         options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.setAcceptInsecureCerts(true);
 
         return new ChromeDriver(options);
     }
@@ -72,22 +81,26 @@ public class TestLoginScenarios {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        // 1. Enter Email
+        // 1. Enter Email / Username
         System.out.println("Entering Email: " + email);
-        WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
+        WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//input[@id='username' or @placeholder='Enter your email' or @type='email' or @name='username']")
+        ));
         emailField.clear();
         emailField.sendKeys(email);
 
         // 2. Enter Password
         System.out.println("Entering Password: " + password);
-        WebElement passwordField = driver.findElement(By.id("password"));
+        WebElement passwordField = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//input[@id='password' or @type='password' or @name='password']")
+        ));
         passwordField.clear();
         passwordField.sendKeys(password);
 
         // 3. Click Sign In
         System.out.println("Clicking 'Sign In' button...");
         WebElement signInBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[@type='submit' and contains(., 'Sign In')]")
+                By.xpath("//button[@type='submit' or contains(., 'Sign In')]")
         ));
         signInBtn.click();
     }

@@ -305,9 +305,14 @@ public class HtmlReportManager {
             .append("</body>\n")
             .append("</html>\n");
 
-        try (FileWriter writer = new FileWriter(new File(outputPath))) {
+        File outFile = new File(outputPath);
+        if (outFile.getParentFile() != null) {
+            outFile.getParentFile().mkdirs();
+        }
+
+        try (FileWriter writer = new FileWriter(outFile, java.nio.charset.StandardCharsets.UTF_8)) {
             writer.write(html.toString());
-            System.out.println("[HTML REPORT GENERATED] Saved to: " + new File(outputPath).getAbsolutePath());
+            System.out.println("[HTML REPORT GENERATED] Saved to: " + outFile.getAbsolutePath());
         } catch (IOException e) {
             System.err.println("Failed to write HTML report: " + e.getMessage());
         }

@@ -30,11 +30,20 @@ public class TestDashboardScenarios {
      */
     public static WebDriver setupDriver() {
         System.out.println("Initializing Chrome WebDriver...");
+        try {
+            io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+        } catch (Exception e) {
+            System.out.println("WebDriverManager setup fallback: " + e.getMessage());
+        }
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
         options.addArguments("--start-maximized");
+        options.addArguments("--ignore-certificate-errors");
+        options.setAcceptInsecureCerts(true);
 
         return new ChromeDriver(options);
     }
@@ -64,35 +73,27 @@ public class TestDashboardScenarios {
     }
 
     /**
-     * Connected Helper: Performs login and selects tenant to reach Dashboard.
+     * Connected Helper: Reuses TestLoginScenarios.runLogin() to reach Dashboard.
      */
     public static boolean loginAndNavigateToDashboard(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
         try {
-            System.out.println("Navigating to Login Page: " + LOGIN_URL);
-            driver.get(LOGIN_URL);
+            System.out.println("Connecting to TestLoginScenarios.runLogin()...");
+            
+            // Calling runLogin from TestLoginScenarios directly
+            TestLoginScenarios.runLogin(driver, VALID_EMAIL, VALID_PASS, "Dashboard Suite Authentication");
 
-            // 1. Enter Credentials
-            WebElement emailInput = wait.until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath("//input[@id='username' or @placeholder='Enter your email' or @type='email']")
-            ));
-            emailInput.clear();
-            emailInput.sendKeys(VALID_EMAIL);
+            // 1. Wait for URL redirect away from login page
+            wait.until(d -> !d.getCurrentUrl().contains("auth/login"));
+            Thread.sleep(1500);
 
-            WebElement passInput = driver.findElement(By.xpath("//input[@id='password' or @type='password']"));
-            passInput.clear();
-            passInput.sendKeys(VALID_PASS);
-
-            WebElement signInBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//button[@type='submit' or contains(., 'Sign In')]")
-            ));
-            signInBtn.click();
-
-            // 2. Select Tenant if Tenant selection screen appears
+            // 2. Select Tenant if screen appears (using dedicated short wait)
             try {
+                WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
                 String tenantXpath = "//p[contains(text(), 'Marco Secure Solutions Ltd.')]/parent::div//button | //button[contains(., 'Go To Dashboard') or contains(., 'Dashboard')]";
-                WebElement tenantBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(tenantXpath)));
+                WebElement tenantBtn = shortWait.until(ExpectedConditions.elementToBeClickable(By.xpath(tenantXpath)));
                 js.executeScript("arguments[0].click();", tenantBtn);
                 System.out.println("Tenant selected: Marco Secure Solutions Ltd.");
+                Thread.sleep(1000);
             } catch (Exception e) {
                 System.out.println("Tenant selection bypassed or direct dashboard access.");
             }
@@ -101,8 +102,9 @@ public class TestDashboardScenarios {
             wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//*[contains(text(), 'Dashboard') or contains(text(), 'Projects') or contains(text(), 'Finance')]")
             ));
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             return true;
+
         } catch (Exception e) {
             System.err.println("Failed to login and reach dashboard: " + e.getMessage());
             return false;
@@ -121,12 +123,10 @@ public class TestDashboardScenarios {
 
         System.out.println("\n=== Test 1: Verifying Dashboard Cards & KPI Widgets ===");
         try {
-            // Locate all card widgets/metric containers
             List<WebElement> cards = driver.findElements(By.xpath("//div[contains(@class, 'card') or contains(@class, 'widget') or contains(@class, 'shadow') or contains(@class, 'rounded')]"));
             
             System.out.println("Total visual card containers detected: " + cards.size());
             
-            // Highlight cards on UI
             if (!cards.isEmpty()) {
                 for (int i = 0; i < Math.min(cards.size(), 4); i++) {
                     js.executeScript("arguments[0].style.border='2px solid #10b981';", cards.get(i));
@@ -227,7 +227,7 @@ public class TestDashboardScenarios {
 
         System.out.println("\n=== Test 3: Verifying Action Buttons & Form Views ===");
         try {
-            // 1. Click 'New' Button on the page
+            // Click 'New' Button
             WebElement newBtn = wait.until(ExpectedConditions.elementToBeClickable(
                     By.xpath("//button[contains(., 'New') or contains(., 'Create') or contains(., 'Add')]")
             ));
@@ -235,7 +235,7 @@ public class TestDashboardScenarios {
             System.out.println("Clicked 'New' Action Button.");
             Thread.sleep(2000);
 
-            // 2. Verify Form/Drawer View has opened
+            // Verify Form/Drawer View is rendered
             WebElement formElement = wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//input[@id='title'] | //span[contains(text(), 'Select Project')] | //form")
             ));
@@ -277,17 +277,12 @@ public class TestDashboardScenarios {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         try {
-            // 1. Connected Login & Tenant Selection
+            // Connected Login using TestLoginScenarios.runLogin()
             boolean loggedIn = loginAndNavigateToDashboard(driver, wait, js);
 
             if (loggedIn) {
-                // 2. Test Dashboard Summary Cards
                 testDashboardSummaryCards(driver, wait, js);
-
-                // 3. Test Sidebar Navigation
                 testSidebarNavigation(driver, wait, js);
-
-                // 4. Test Actions & Views
                 testActionButtonsAndViews(driver, wait, js);
             } else {
                 System.err.println("Aborting dashboard suite: Login pre-requisite failed.");
@@ -299,7 +294,7 @@ public class TestDashboardScenarios {
             // Generate HTML Report
             reportManager.generateReport("test_report.html");
 
-            // Append results to Excel (test_report.csv) with Timestamp and Testing Data
+            // Append results to Excel (test_report.csv)
             ExcelReportManager.appendResultsToExcel(reportManager.getResults());
 
             System.out.println("\n*******************************************************************");

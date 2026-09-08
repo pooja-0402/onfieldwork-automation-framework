@@ -1,0 +1,85 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": ":rotating_light: Infra Projects Test Execution Failure Alert",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "<!channel> :warning: *ATTENTION ALL:* Automated test execution for the *Infra Projects* module has FAILED."
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Target System:*\n`https://devapp.marcoaiot.com`"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Executed At:*\n07-Sep-2026 10:31:16 IST"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Overall Status:*\n:x: *FAILED / ABORTED*"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Failed Stage:*\n`Step 1: User Authentication`"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*:stop_sign: Currently Occurred Error:*\n• *Selenium Failure:* `Expected condition failed: waiting for presence of element located by: By.id: username (tried for 15 second(s) with 500 milliseconds interval)`\n• *Root Cause:* *Server SSL Certificate Expired* (`SEC_E_CERT_EXPIRED` / `NET::ERR_CERT_DATE_INVALID`).\n• *Details:* Chrome blocked navigation to `https://devapp.marcoaiot.com/auth/login` due to an expired SSL certificate on the server, preventing the login form and `#username` element from loading."
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*:clipboard: Blocked Test Scenarios:*\n1. *Navigate to Infra Projects -> Project List* :no_entry_sign: _(Blocked / Skipped)_\n2. *Create Project with Infrastructure Setup* :no_entry_sign: _(Blocked / Skipped)_\n3. *Verify Project Details Page & Infrastructure Tab* :no_entry_sign: _(Blocked / Skipped)_"
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*:wrench: Required Action:*\n• *DevOps / Infra Team:* Please renew/re-issue the SSL certificate for `devapp.marcoaiot.com` on the Nginx server.\n• *Temporary QA Workaround:* Add `--ignore-certificate-errors` to ChromeOptions in test driver if local runs are needed before certificate renewal."
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "Automated Test Suite • Selenium WebDriver 4.21 • Java 21 • Report: `test_report.html` & `test_report.csv`"
+        }
+      ]
+    }
+  ]
+}

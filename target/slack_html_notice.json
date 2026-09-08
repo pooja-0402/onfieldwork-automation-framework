@@ -1,0 +1,11 @@
+{
+  "blocks": [
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "cc: *@umesh* and *@pramod*\n📁 *HTML Test Report File (`test_report.html`)*\n\nThe standalone interactive test report file has been generated at:\n`c:\\Data Pooja\\Testing\\test_report.html`\n\n*Key Highlights:*\n• *Suite:* Infra Projects Creation & Details Verification\n• *Status:* 3 / 3 Tests Passed (100%)\n• *Embedded Assets:* High-resolution screenshots of Project List, Modal Creation, and Infrastructure Tab."
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Infra Projects Automation Test Report",
+        "emoji": true
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "cc: *@umesh* and *@pramod*\nHere is the latest automated test execution report for the *Infra Projects* module."
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Target System:*\n`https://devapp.marcoaiot.com`"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Executed At:*\n05-Sep-2026 15:56:15 IST"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Total Scenarios:*\n3 Tests"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Overall Status:*\n*PASSED (100%)* :white_check_mark:"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Test Scenarios Summary:*\n\n*1. Navigate to Infra Projects -> Project List* :white_check_mark:\n• *Description:* Verified sidebar menu navigation to `Infra Projects` and opening `Project List`.\n• *Result:* Navigated to `/projects` with `Create Project` action button visible (Duration: 4.58s).\n\n*2. Create Project with Infrastructure Setup* :white_check_mark:\n• *Description:* Completed 4-step wizard with *Infrastructure Setup* checkbox enabled.\n• *Result:* Dynamic dates, nickname, address, services, and Infrastructure enabled flag submitted (Duration: 36.12s).\n\n*3. Verify Project Details Page & Infrastructure Tab* :white_check_mark:\n• *Description:* Opened project details, verified *Project Profile* card, tabs, and *Infrastructure* module.\n• *Result:* Profile verified, navigation tabs confirmed (`Profile`, `Organization`, `Teams`, `Infrastructure`, `Directory`, `Documents`, `Cost Center`, `Work Order`, `Setting`), and *Infrastructure Tab* clicked displaying root node, node list tree, progress, weightage, and timeline (Duration: 18.25s)."
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "Automated Test Suite • Selenium WebDriver 4.21 • Java 21 • Report saved in `test_report.html` and `test_report.csv`"
+        }
+      ]
+    }
+  ]
+}

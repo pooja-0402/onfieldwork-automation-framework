@@ -1,4 +1,3 @@
-
 # Playwright
 node_modules/
 /test-results/
@@ -6,3 +5,23 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# IDE & Editor files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/*
+!.vscode/settings.json
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary and log files
+*.tmp
+*.bak
+
+# Local secrets & configs
+*slack_config.json
